@@ -38,8 +38,23 @@ function index(req, res){
   })
 }
 
+function show(req, res){
+  Flight.findById(req.params.id)
+  .then(flight => {
+    res.render('flights/show', {
+      flight: flight,
+      title: "Flight"
+    })
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/')
+  })
+}
+
 export {
   newFlight as new,
   create,
-  index
+  index,
+  show,
 }
