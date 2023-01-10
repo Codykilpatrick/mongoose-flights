@@ -71,6 +71,24 @@ function edit(req, res){
       title: "Edit Flight"
     })
   })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/')
+  })
+}
+
+function update(req, res){
+  for (const key in req.body) {
+    if (req.body[key] === '') delete req.body[key]
+	}
+  Flight.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(flight => {
+    res.redirect(`/flights/${flight._id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/')
+  })
 }
 
 export {
@@ -80,4 +98,5 @@ export {
   show,
   deleteFlight as delete,
   edit,
+  update,
 }
