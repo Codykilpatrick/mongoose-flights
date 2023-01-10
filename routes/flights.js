@@ -3,6 +3,8 @@ import * as flightCtrl from '../controllers/flights.js'
 
 const router = Router()
 
+router.get('/', flightCtrl.index)
+
 // localhost:3000/flights/new
 router.get('/new', flightCtrl.new)
 
