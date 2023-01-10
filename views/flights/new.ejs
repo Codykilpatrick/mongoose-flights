@@ -1,8 +1,13 @@
-<%- include('./partials/html-head') %>
-<%- include('./partials/nav') %>
+<%- include('../partials/html-head') %>
+<%- include('../partials/nav') %>
 
 <main>
   <h1><%= title %></h1>
+  <form action="/flights" id="new-form" method="POST" >
+    <label for="flight-input">Flight:</label>
+    <input type="text" name="flight" id="flight-input">
+    <button type="submit">Add Flight</button>
+  </form>
 </main>
 
-<%- include('./partials/footer') %>
+<%- include('../partials/footer') %>
