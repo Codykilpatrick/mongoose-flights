@@ -10,14 +10,21 @@
     method="POST"
   >
     <label for="airline-input">Airline:</label>
-    <input type="text" name="airline" value="<%= flight.airline %>" id="airline-input">
+    <select name="airline" id="airline-input">
+      <option value="<%= flight.airline %>"><%= flight.airline %></option>
+      <option value="United">United</option>
+      <option value="American">American</option>
+      <option value="Southwest">Southwest</option>
+    </select>
     <label for="airport-input">Airport:</label>
-    <input 
-      type="text" 
-      name="airport"
-      value="<%= flight.airport %>"
-      id="airline-input"
-    >
+    <select name="airport" id="airport-input">
+      <option value="<%= flight.airport %>"><%= flight.airport %></option>
+      <option value="AUS">AUS</option>
+      <option value="DFW">DFW</option>
+      <option value="DEN">DEN</option>
+      <option value="LAX">LAX</option>
+      <option value="SAN">SAN</option>
+    </select>
     <label for="flightno-input">Flight Number: </label>
     <input 
       type="number"
