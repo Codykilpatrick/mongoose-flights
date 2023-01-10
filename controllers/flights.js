@@ -52,9 +52,21 @@ function show(req, res){
   })
 }
 
+function deleteFlight(req, res){
+  Flight.findByIdAndDelete(req.params.id)
+  .then(movie => {
+    res.redirect('/flights')
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/')
+  })
+}
+
 export {
   newFlight as new,
   create,
   index,
   show,
+  deleteFlight as delete
 }
