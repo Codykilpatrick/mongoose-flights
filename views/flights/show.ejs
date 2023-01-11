@@ -24,6 +24,7 @@
     <table>
       <thead>
         <tr>
+          <th>Date added</th>
           <th>Seat</th>
           <th>Price</th>
         </tr>
@@ -41,6 +42,23 @@
   <% } else { %>
     <h3>No Tickets Yet</h3>
   <% } %>
+  <form 
+  id="add-ticket-form"
+  action="/flights/<%= flight._id %>/tickets"
+  method="POST"
+  >
+  <label for="ticket-price">Ticket Price:</label>
+  <input 
+    type="number"
+    name="price"
+    id="ticket-price">
+  <label for="seat">seat</label>
+  <input 
+    type="string"
+    name="seat"
+    id="seat">
+  <button type="submit">Add Ticket</button>
+</form>
 </main>
 
 <%- include('../partials/footer') %>
