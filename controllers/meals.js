@@ -1,13 +1,23 @@
 import { Meal } from "../models/meal.js"
 
 function newMeal(req, res){
-  console.log("We tried");
   res.render('meals/new', {
     title: "Add Meal",
-    
+  })
+}
+
+function create(req, res){
+  Meal.create(req.body)
+  .then(meal => {
+    res.redirect('/')
+  })
+  .catch(err => {
+    console.log(err)
+    res.redirect('/')
   })
 }
 
 export {
-  newMeal as new
+  newMeal as new,
+  create,
 }

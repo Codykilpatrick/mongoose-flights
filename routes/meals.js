@@ -5,9 +5,11 @@ const router = Router()
 
 // Localhost:3000/meals
 
-// GET localhost:300/meals/new
+// GET localhost:3000/meals/new
 router.get('/new', mealsCtrl.new)
 
+// POST localhost:3000/meals
+router.post('/', mealsCtrl.create)
 
 export { 
   router
