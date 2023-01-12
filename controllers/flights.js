@@ -25,8 +25,15 @@ function create(req, res){
   })
 }
 
+
+
+
+
 function index(req, res){
-  Flight.find({})
+
+  const filter = req.query.airline ? { airline: req.query.airline } : {}
+
+  Flight.find(filter)
   .then(flights => {
     res.render('flights/index', {
       flights: flights,
@@ -38,6 +45,13 @@ function index(req, res){
     res.redirect('/')
   })
 }
+
+
+
+
+
+
+
 
 function show(req, res){
   Flight.findById(req.params.id)

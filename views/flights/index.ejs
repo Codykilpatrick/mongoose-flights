@@ -3,6 +3,11 @@
 <%- include('../partials/nav') %>
 <main>
   <h1>Flight List</h1>
+  <% ['United', 'American', 'Southwest'].forEach(airline => { %>
+    <a href="/flights?airline=<%= airline %>">
+      <%= airline %> 
+    </a>
+  <% }) %> 
     <table>
       <thead>
         <tr>
