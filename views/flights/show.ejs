@@ -18,12 +18,18 @@
     <div><%= flight.airport%></div>
     <div>Departs: </div>
     <div><%= flight.departs %></div>
+    <div>Meals</div>
+    <ul>
+      <% flight.meals.forEach(meal => { %>
+        <li><%= meal.name %> </li>
+      <% }) %>
+    </ul>
   </section>
 
   <form action="/flights/<%= flight._id %>/meals" method="POST">
     <select name="mealId">
       <% meals.forEach(meal => { %>
-        <option value="<%= meal._id %>"><%= meal._id %></option>
+        <option value="<%= meal._id %>"><%= meal.name %></option>
       <% }) %>
     </select>
     <button type="submit">Add to Flight</button>
